@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from routes.algorithms.geneticnds.info_get import info_get
 
-from routes.algorithms.parse_body import parse_body
+from routes.algorithms.utils.frontend_data_parser import parse_input, parse_output
 
 from routes.algorithms.geneticnds.solve_post import solve_post
 
@@ -17,11 +17,12 @@ def info():
 
 @geneticnds_api.route("/solve", methods=["POST"])
 def solve():
-    body = parse_body(request.json)
+    body = parse_input(request.json)
     if body["status_code"] != 200:
-        return body["error"]
+        return body["error"], body["status_code"]
     data = body["data"]
+    result = solve_post(data)
 
-    response = solve_post(data)
+    response = parse_output(result, body["data"]["pbi_ids"])
 
     return {"response": response}, 200

@@ -1,20 +1,20 @@
 from flask import Blueprint, request
 
-from routes.algorithms.umda.info_get import info_get
-from routes.algorithms.umda.solve_post import solve_post
+from routes.algorithms.pbil.info_get import info_get
+from routes.algorithms.pbil.solve_post import solve_post
 from routes.algorithms.utils.frontend_data_parser import parse_input, parse_output
 
-umda_api = Blueprint("umda_api", __name__)
+pbil_api = Blueprint("pbil_api", __name__)
 
 
-@umda_api.route("/info", methods=["GET"])
+@pbil_api.route("/info", methods=["GET"])
 def info():
     response = info_get()
 
     return {"response": response}, 200
 
 
-@umda_api.route("/solve", methods=["POST"])
+@pbil_api.route("/solve", methods=["POST"])
 def solve():
     body = parse_input(request.json)
     if body["status_code"] != 200:

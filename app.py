@@ -1,11 +1,9 @@
 from flask import Flask
-from routes.warmup.routes import warmup_api
-from routes.algorithms.routes import algorithms_api
+from routes.routes import api
 
 app = Flask(__name__)
 
-app.register_blueprint(warmup_api, url_prefix="/warmup")
-app.register_blueprint(algorithms_api, url_prefix="/algorithms")
+app.register_blueprint(api, url_prefix="/api")
 
 
 @app.route("/")

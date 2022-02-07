@@ -1,3 +1,4 @@
+black==22.1.0
 click==8.0.3
 colorama==0.4.4
 Flask==2.0.2
@@ -5,4 +6,12 @@ gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe==2.0.1
+-e git+https://github.com/UCLM-SIMD/MONRP@0d1f04ee7121192f3112bb336be2cc62940eb48a#egg=monrp
+mypy-extensions==0.4.3
+numpy==1.22.2
+pathspec==0.9.0
+pep8==1.7.1
+platformdirs==2.4.1
+tomli==2.0.0
+typing-extensions==4.0.1
 Werkzeug==2.0.2

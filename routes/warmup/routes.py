@@ -1,7 +1,8 @@
 from flask import Blueprint
 
-warmup_api = Blueprint('warmup_api', __name__)
+warmup_api = Blueprint("warmup_api", __name__)
 
-@warmup_api.route("/",methods=["GET"])
+
+@warmup_api.route("/", methods=["GET"])
 def warmup_get():
-    return "Hello World!"
+    return {"response": "warmup on"}, 200
