@@ -72,9 +72,19 @@ def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
 
     returned_population = []
     for solution in population:
-        returned_solution = []
+
+        total_cost = float(solution.dataset.pbis_cost[(solution.selected == 1)].sum())
+        total_satisfaction = float(
+            solution.dataset.pbis_satisfaction[(solution.selected == 1)].sum()
+        )
+
+        returned_solution = {
+            "pbis": [],
+            "satisfaction": total_satisfaction,
+            "cost": total_cost,
+        }
         for i in range(len(solution.selected)):
-            returned_solution.append(
+            returned_solution["pbis"].append(
                 {
                     "idpbi": int(data["pbi_ids"][i]),
                     "included": int(solution.selected[i]),
