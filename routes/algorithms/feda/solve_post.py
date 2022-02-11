@@ -1,6 +1,6 @@
 from typing import Any, Dict
-from src.monrp.datasets.Dataset import Dataset
-from src.monrp.algorithms.EDA.FEDA.feda_algorithm import (
+from datasets.Dataset import Dataset
+from algorithms.EDA.FEDA.feda_algorithm import (
     FEDAAlgorithm,
 )
 

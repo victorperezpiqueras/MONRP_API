@@ -1,9 +1,8 @@
 from typing import Any, Dict
-from src.monrp.datasets.Dataset import Dataset
-from src.monrp.algorithms.genetic.geneticnds.geneticnds_algorithm import (
+from datasets.Dataset import Dataset
+from algorithms.genetic.geneticnds.geneticnds_algorithm import (
     GeneticNDSAlgorithm,
 )
-from src.monrp.algorithms.abstract_algorithm.abstract_algorithm import AbstractAlgorithm
 
 
 def solve_post(data) -> Dict[str, Any]:

@@ -1,6 +1,6 @@
 from typing import Any, Dict
-from src.monrp.datasets.Dataset import Dataset
-from src.monrp.algorithms.EDA.bivariate.MIMIC.mimic_algorithm import (
+from datasets.Dataset import Dataset
+from algorithms.EDA.bivariate.MIMIC.mimic_algorithm import (
     MIMICAlgorithm,
 )
 

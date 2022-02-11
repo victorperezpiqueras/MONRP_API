@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-from src.monrp.models.Solution import Solution
+from models.Solution import Solution
 
 
 def parse_input(body: Dict) -> Dict[str, Any]:
@@ -30,6 +30,8 @@ def parse_input(body: Dict) -> Dict[str, Any]:
 
     # if pbis without cost -> asign max cost
     max_cost = max(filter(lambda v: v is not None, pbi_costs))
+    # store warning if any pbi not estimated
+    any_pbi_without_cost = any(cost is None for cost in pbi_costs)
     pbi_costs = [max_cost if cost is None else cost for cost in pbi_costs]
 
     stakeholder_importances = []
@@ -59,12 +61,13 @@ def parse_input(body: Dict) -> Dict[str, Any]:
             "pbi_ids": pbi_ids,
             "stakeholders_importances": stakeholder_importances,
             "stakeholders_pbis_priorities": stakeholders_pbis_priorities,
+            "warning": any_pbi_without_cost,
         },
         "status_code": 200,
     }
 
 
-def parse_output(result: Dict, pbi_ids: List[int]) -> Dict[str, Any]:
+def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
     population: List[Solution] = result["population"]
 
     returned_population = []
@@ -72,8 +75,11 @@ def parse_output(result: Dict, pbi_ids: List[int]) -> Dict[str, Any]:
         returned_solution = []
         for i in range(len(solution.selected)):
             returned_solution.append(
-                {"idpbi": int(pbi_ids[i]), "included": int(solution.selected[i])}
+                {
+                    "idpbi": int(data["pbi_ids"][i]),
+                    "included": int(solution.selected[i]),
+                }
             )
         returned_population.append(returned_solution)
 
-    return returned_solution
+    return {"population": returned_population, "warning": data["warning"]}

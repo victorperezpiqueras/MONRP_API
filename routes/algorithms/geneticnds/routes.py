@@ -23,6 +23,6 @@ def solve():
     data = body["data"]
     result = solve_post(data)
 
-    response = parse_output(result, body["data"]["pbi_ids"])
+    response = parse_output(result, body["data"])
 
     return {"response": response}, 200
