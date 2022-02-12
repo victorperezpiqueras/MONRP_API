@@ -1,2 +1,2 @@
 def info_get():
-    return {"info": "Fixed structure EDA"}
+    return {"code": "feda", "name": "FEDA", "long_name": "Fixed structure EDA"}

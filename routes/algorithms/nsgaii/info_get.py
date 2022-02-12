@@ -1,2 +1,6 @@
 def info_get():
-    return {"info": "Nondominated Sorted Genetic Algorithm II"}
+    return {
+        "code": "nsgaii",
+        "name": "NSGA-II",
+        "long_name": "Nondominated Sorted Genetic Algorithm II",
+    }

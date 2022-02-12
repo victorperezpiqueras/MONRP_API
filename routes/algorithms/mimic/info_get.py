@@ -1,2 +1,6 @@
 def info_get():
-    return {"info": "Mutual-Information-Maximizing Input Clustering"}
+    return {
+        "code": "mimic",
+        "name": "MIMIC",
+        "long_name": "Mutual-Information-Maximizing Input Clustering",
+    }

@@ -1,2 +1,6 @@
 def info_get():
-    return {"info": "Probability Based Incremental Learning"}
+    return {
+        "code": "pbil",
+        "name": "PBIL",
+        "long_name": "Probability Based Incremental Learning",
+    }

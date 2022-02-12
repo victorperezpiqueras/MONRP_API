@@ -1,2 +1,6 @@
 def info_get():
-    return {"info": "Greedy Randomized Adaptive Search Procedure"}
+    return {
+        "code": "grasp",
+        "name": "GRASP",
+        "long_name": "Greedy Randomized Adaptive Search Procedure",
+    }

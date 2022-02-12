@@ -1,2 +1,6 @@
 def info_get():
-    return {"info": "Univariate Marginal Distribution Algorithm"}
+    return {
+        "code": "umda",
+        "name": "UMDA",
+        "long_name": "Univariate Marginal Distribution Algorithm",
+    }
