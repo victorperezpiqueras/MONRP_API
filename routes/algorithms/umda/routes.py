@@ -20,6 +20,7 @@ def solve():
     if body["status_code"] != 200:
         return body["error"], body["status_code"]
     data = body["data"]
+
     result = solve_post(data)
 
     response = parse_output(result, body["data"])

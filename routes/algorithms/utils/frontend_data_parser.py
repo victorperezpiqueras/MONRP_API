@@ -1,6 +1,8 @@
 from typing import List, Dict, Any
 from models.Solution import Solution
 
+from routes.algorithms.utils.extra_data_generator import get_metrics
+
 
 def parse_input(body: Dict) -> Dict[str, Any]:
     if not body:
@@ -92,4 +94,10 @@ def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
             )
         returned_population.append(returned_solution)
 
-    return {"population": returned_population, "warning": data["warning"]}
+    parsed_result = {}
+    parsed_result["population"] = returned_population
+    parsed_result["warning"] = data["warning"]
+    metrics = get_metrics(population)
+    parsed_result = {**parsed_result, **metrics}
+
+    return parsed_result

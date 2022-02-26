@@ -1,8 +1,5 @@
 from typing import Any, Dict
 from datasets.Dataset import Dataset
-from algorithms.genetic.geneticnds.geneticnds_algorithm import (
-    GeneticNDSAlgorithm,
-)
 from algorithms.GRASP.GRASP import GRASP
 
 
