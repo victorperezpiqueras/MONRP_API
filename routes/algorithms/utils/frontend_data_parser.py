@@ -97,7 +97,6 @@ def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
     parsed_result = {}
     parsed_result["population"] = returned_population
     parsed_result["warning"] = data["warning"]
-    metrics = get_metrics(population)
-    parsed_result = {**parsed_result, **metrics}
+    parsed_result["metrics"] = get_metrics(population)
 
     return parsed_result
