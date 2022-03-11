@@ -13,7 +13,7 @@ joblib==1.1.0
 kiwisolver==1.3.2
 MarkupSafe==2.0.1
 matplotlib==3.5.1
-git+https://github.com/UCLM-SIMD/MONRP@db84556e728bf588edab7c2426e454f55d066f3d#egg=monrp
+git+https://github.com/UCLM-SIMD/MONRP@16b19ace0746365300b5d3d16f5dda8c3a196cf7#egg=monrp
 mypy-extensions==0.4.3
 numpy==1.22.2
 packaging==21.3

@@ -22,4 +22,4 @@ def solve_post(data) -> Dict[str, Any]:
 
     result = algorithm.run()
 
-    return result
+    return algorithm, result

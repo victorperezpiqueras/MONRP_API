@@ -21,8 +21,8 @@ def solve():
         return body["error"], body["status_code"]
     data = body["data"]
 
-    result = solve_post(data)
+    algorithm, result = solve_post(data)
 
-    response = parse_output(result, body["data"])
+    response = parse_output(algorithm, result, body["data"])
 
     return {"response": response}, 200

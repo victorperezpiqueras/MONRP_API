@@ -1,7 +1,11 @@
 from typing import List, Dict, Any
 from models.Solution import Solution
 
-from routes.algorithms.utils.extra_data_generator import get_metrics
+from routes.algorithms.utils.extra_data_generator import (
+    get_hyperparameters,
+    get_metrics,
+)
+from algorithms.abstract_algorithm.abstract_algorithm import AbstractAlgorithm
 
 
 def parse_input(body: Dict) -> Dict[str, Any]:
@@ -69,7 +73,9 @@ def parse_input(body: Dict) -> Dict[str, Any]:
     }
 
 
-def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
+def parse_output(
+    algorithm: AbstractAlgorithm, result: dict, data: dict
+) -> Dict[str, Any]:
     population: List[Solution] = result["population"]
 
     returned_population = []
@@ -98,5 +104,5 @@ def parse_output(result: Dict, data: dict) -> Dict[str, Any]:
     parsed_result["population"] = returned_population
     parsed_result["warning"] = data["warning"]
     parsed_result["metrics"] = get_metrics(population)
-
+    parsed_result["hyperparameters"] = get_hyperparameters(algorithm)
     return parsed_result
