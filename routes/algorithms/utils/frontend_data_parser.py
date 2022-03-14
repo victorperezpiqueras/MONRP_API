@@ -50,6 +50,7 @@ def parse_input(body: Dict) -> Dict[str, Any]:
         [0 for _ in range(len(pbi_costs))]
         for _ in range(len(stakeholder_importances_ids))
     ]
+    default_value = 3  # or zero
     for x in range(len(stakeholder_importances)):
         for y in range(len(pbi_costs)):
             values = [
@@ -58,8 +59,10 @@ def parse_input(body: Dict) -> Dict[str, Any]:
                 if val["idpbi"] == pbi_ids[y]
                 and val["idrol"] == stakeholder_importances_ids[x]
             ]
-            # if no priority is given to a pbi -> set zero value
-            stakeholders_pbis_priorities[x][y] = values[0] if len(values) > 0 else 0
+            # if no priority is given to a pbi -> set Default value
+            stakeholders_pbis_priorities[x][y] = (
+                values[0] if len(values) > 0 else default_value
+            )
 
     return {
         "data": {
